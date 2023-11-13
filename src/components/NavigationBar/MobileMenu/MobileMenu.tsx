@@ -58,10 +58,10 @@ export const MobileMenu = ({
               </Link>
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                className="-m-2.5 flex items-center gap-2 rounded-md p-2.5 text-gray-700"
                 onClick={close}
               >
-                <span className="sr-only">Sulje valikko</span>
+                <span>Sulje</span>
                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
