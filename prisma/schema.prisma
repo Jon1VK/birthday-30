@@ -6,6 +6,15 @@ generator client {
 }
 
 datasource db {
-    provider = "postgres"
+    provider = "postgresql"
     url      = env("DATABASE_URL")
+}
+
+model User {
+    id               String   @id @default(cuid())
+    firstname        String
+    lastname         String
+    isAttending      Boolean?
+    plusOneAllowed   Boolean  @default(false)
+    plusOneAttending Boolean?
 }

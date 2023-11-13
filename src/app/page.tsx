@@ -1,37 +1,57 @@
+import { InvitationForm } from "~/components/InvitationForm";
+import { getUser } from "~/server/data/getUser";
 import Link from "next/link";
 
-export default function HomePage() {
+export default async function Home() {
+  const user = await getUser();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
-          </Link>
+    <>
+      <h1 className="inline-block font-display backdrop-blur-sm text-4xl text-gray-900 sm:text-6xl">
+        <span className="text-5xl sm:text-7xl">J</span>onin{" "}
+        <span className="bg-gradient-to-br bg-cover from-lime-500 text-5xl sm:text-7xl to-sky-500 bg-clip-text text-transparent">
+          30v
+        </span>{" "}
+        synttärit
+      </h1>
+      {user ? (
+        <>
+          <p className="mt-12 backdrop-blur-sm text-lg leading-8 text-gray-600">
+            Moi{" "}
+            <span className="font-bold tracking-wide text-pink-700 sm:whitespace-nowrap">
+              {user.firstname}
+            </span>
+            . Tervetuloa viettämään mun 30v synttäreitä{" "}
+            <span className="font-bold tracking-wide text-pink-700 sm:whitespace-nowrap">
+              Lauantaina 13.1. klo 16:00
+            </span>{" "}
+            alkaen Vincitin toimistolle osoitteeseen{" "}
+            <a className="font-bold tracking-wide text-pink-700 sm:whitespace-nowrap">
+              Helsinginkatu 15, 20500 Turku
+            </a>
+            .
+          </p>
+          <InvitationForm user={user} />
+        </>
+      ) : (
+        <div className="mt-12 text-lg backdrop-blur-sm leading-8 text-gray-600 space-y-6">
+          <p>Moi! Oot löytänyt mun 30v synttärien kotisivuille.</p>
+          <p>
+            Jos haluat palavasti päästä mukaan juhlimaan (tai jos oot hukannut
+            ilmoittautumislinkkisi), laita mulle viestiä ja järjestetään asia
+            kuntoon!
+          </p>
+          <p>
+            Muistamiset voi jättää{" "}
+            <Link
+              className="font-bold hover:underline tracking-wide text-pink-700 sm:whitespace-nowrap"
+              href="/muistamiset"
+            >
+              täältä
+            </Link>{" "}
+            löytyvien ohjeiden avulla.
+          </p>
         </div>
-      </div>
-    </main>
+      )}
+    </>
   );
 }
