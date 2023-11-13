@@ -4,6 +4,7 @@ import { Switch } from "@headlessui/react";
 import type { User } from "@prisma/client";
 import { submitInvitationForm } from "~/server/actions/submitInvitationForm";
 import { cn } from "~/utils/cn";
+import Link from "next/link";
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
 
@@ -20,7 +21,7 @@ export const InvitationForm = ({ user }: { user: User }) => {
 
   return (
     <div className="mt-12 sm:mx-auto sm:w-full sm:max-w-[480px]">
-      <div className="bg-white px-8 py-12 shadow sm:rounded-lg sm:px-16">
+      <div className="bg-white px-8 py-12 shadow space-y-6 sm:rounded-lg sm:px-16">
         <form className="space-y-6" action={submitForm}>
           <h2 className="font-display text-xl tracking-wide text-gray-900 sm:text-2xl">
             Ilmoittautuminen
@@ -105,13 +106,25 @@ export const InvitationForm = ({ user }: { user: User }) => {
               <button
                 type="button"
                 onClick={() => setShowInputs(true)}
-                className="flex w-full justify-center rounded-md bg-emerald-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-emerald-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
+                className="flex w-full justify-center rounded-md bg-emerald-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow hover:bg-emerald-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
               >
                 Muuta valintojasi
               </button>
             </>
           )}
         </form>
+        <Link
+          href="/muistamiset"
+          className="flex w-full justify-center rounded-md border-2 border-emerald-600 px-3 py-1.5 text-sm font-semibold leading-6 text-emerald-700 shadow-emerald-800 shadow hover:bg-emerald-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
+        >
+          Muistamiset
+        </Link>
+        <Link
+          href="/ohjeita"
+          className="flex w-full justify-center rounded-md border-2 border-emerald-600 px-3 py-1.5 text-sm font-semibold leading-6 text-emerald-700 shadow-emerald-800 shadow hover:bg-emerald-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600"
+        >
+          Hyvä tietää
+        </Link>
       </div>
     </div>
   );
