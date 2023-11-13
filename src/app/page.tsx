@@ -6,7 +6,7 @@ export default async function Home() {
   const user = await getUser();
   return (
     <>
-      <h1 className="inline-block font-display backdrop-blur-sm text-4xl text-gray-900 sm:text-6xl">
+      <h1 className="inline-block font-display text-4xl text-gray-900 sm:text-6xl">
         <span className="text-5xl sm:text-7xl">J</span>onin{" "}
         <span className="bg-gradient-to-br bg-cover from-lime-500 text-5xl sm:text-7xl to-sky-500 bg-clip-text text-transparent">
           30v
@@ -15,7 +15,7 @@ export default async function Home() {
       </h1>
       {user ? (
         <>
-          <p className="mt-12 backdrop-blur-sm text-lg leading-8 text-gray-600">
+          <p className="mt-12 text-lg leading-8 text-gray-600">
             Moi{" "}
             <span className="font-bold tracking-wide text-pink-700 sm:whitespace-nowrap">
               {user.firstname}
@@ -25,9 +25,9 @@ export default async function Home() {
               Lauantaina 13.1. klo 16:00
             </span>{" "}
             alkaen Vincitin toimistolle osoitteeseen{" "}
-            <a className="font-bold tracking-wide text-pink-700 sm:whitespace-nowrap">
+            <span className="font-bold tracking-wide text-pink-700 sm:whitespace-nowrap">
               Helsinginkatu 15, 20500 Turku
-            </a>
+            </span>
             .
           </p>
           <InvitationForm user={user} />

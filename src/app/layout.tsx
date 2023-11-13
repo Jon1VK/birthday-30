@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <BackgroundPattern>
           <NavigationBar />
-          <main className="mx-auto max-w-2xl px-6 sm:px-8 py-32 text-center sm:py-36 lg:py-44">
+          <main className="mx-auto backdrop-blur-sm max-w-2xl px-6 sm:px-8 py-32 text-center sm:py-36 lg:py-44">
             {children}
           </main>
         </BackgroundPattern>

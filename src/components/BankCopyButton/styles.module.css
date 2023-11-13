@@ -1,0 +1,30 @@
+.tooltipVisible::before {
+  display: block;
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  translate: -50% -50%;
+  rotate: 45deg;
+  background-color: rgb(5 150 105);
+  width: 10px;
+  height: 10px;
+  content: "";
+}
+
+.tooltipVisible::after {
+  display: block;
+  position: absolute;
+  z-index: 9999;
+  top: -100%;
+  left: 50%;
+  translate: -50% -25%;
+  border-radius: 0.25rem;
+  background-color: rgb(5 150 105);
+  padding: 0.25rem 0.5rem;
+  pointer-events: none;
+  content: "Kopioitu";
+  color: white;
+  font-weight: 600;
+  font-size: 0.8rem;
+  line-height: 1rem;
+}
