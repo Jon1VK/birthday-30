@@ -1,9 +1,9 @@
 import { getUser } from "~/server/data/getUser";
-import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 export default async function Muistamiset() {
   const user = await getUser();
-  if (!user) redirect("/");
+  if (!user) notFound();
 
   return (
     <>
@@ -46,7 +46,8 @@ export default async function Muistamiset() {
           ehdotuksia. Varsinkin jotain spesiaalimpia drinkkiehdotuksia otan
           mielelläni vastaan.
           <span className="text-xs block mt-1">
-            *Sikatilan poikana mainostetusti tarjolla sikaa.
+            *Sikatilallisen poikana mainostetusti tarjolla sikaa. Jos sulla on
+            ruoka-allergioita, ilmoita niistä mulle.
           </span>
         </p>
         <p>
